@@ -6,7 +6,7 @@ return function(T,fun)
 	if fun~=nil then 
 		o=fun;
 	end
-o("afdssf\n");
+o("\\afdssf\n");
  local i = 1 ;
 o("\n\n");
  i=i+5 ;
@@ -32,6 +32,7 @@ o([=[
 
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 [[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]]
+
 
 ]=]);
 return table.concat(lem_output);end

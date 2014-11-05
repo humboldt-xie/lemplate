@@ -24,9 +24,14 @@ local status="";
 local w=function(str) target:write(str) end;
 local quote=function(str) 
 	if #str<80 then
+		str=string.gsub(str,"\\",'\\\\');
 		str=string.gsub(str,"\n",'\\n');
 		str=string.gsub(str,"\r",'\\r');
 		str=string.gsub(str,"\t",'\\t');
+		str=string.gsub(str,"\a",'\\a');
+		str=string.gsub(str,"\b",'\\b');
+		str=string.gsub(str,"\f",'\\f');
+		str=string.gsub(str,"\v",'\\v');
 		str=string.gsub(str,'"',[[\"]]);
 		return '"','"',str;
 	end
