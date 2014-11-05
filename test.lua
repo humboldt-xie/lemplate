@@ -6,39 +6,32 @@ return function(T,fun)
 	if fun~=nil then 
 		o=fun;
 	end
-o([=[afdssf
-]=]);
+o("afdssf\n");
  local i = 1 ;
-o([=[
-]=]);
+o("\n\n");
  i=i+5 ;
-o([=[
-]=]);
+o("\n\n");
 o(i);
-o([=[
-]=]);
+o("\n\n");
  for i,v in pairs(T) do 
-o([=[
-]=]);
+o("\n\n");
 o(v);
-o([=[
-]=]);
+o("\n\n");
  end 
-o([=[
-a]]
-]=]);
+o("\n\na]]\n");
  if T.stat==1 then 
-o([=[
-hello]=]);
+o("\n\nhello");
 o( T.stat );
-o([=[1
-]=]);
+o("1\n");
  else 
-o([=[
-other
-]=]);
+o("\n\nother\n");
  end 
+o("\n\nadsfs\n[[ ]]\n");
+o(5 );
 o([=[
-adsfs
+
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+[[aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa]]
+
 ]=]);
 return table.concat(lem_output);end

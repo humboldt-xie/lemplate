@@ -23,9 +23,40 @@ local stop=0;
 local status="";
 local w=function(str) target:write(str) end;
 local quote=function(str) 
-	return "[=[","]=]";
+	if #str<80 then
+		str=string.gsub(str,"\n",'\\n');
+		str=string.gsub(str,"\r",'\\r');
+		str=string.gsub(str,"\t",'\\t');
+		str=string.gsub(str,'"',[[\"]]);
+		return '"','"',str;
+	end
+	local l="[[";
+	local r="]]";
+	local level=1;
+	while true do
+		local fl=string.gsub(l,"%[","%%[");
+		local fr=string.gsub(r,"%]","%%]");
+		if string.find(str,fl) or string.find(str,fr) then
+			local m="";
+			for i=1,level do
+				m=m.."=";
+			end
+			l="["..m.."[";
+			r="]"..m.."]";
+		else
+			break;
+		end
+		level=level+1;
+	end
+	return l,r,str;
 end
-local o=function(str) local l,r=quote(str);w("o("..l..str..r..");\n"); end
+local o=function(str) 
+	if string.sub(str,1,1)=="\n" then 
+		str="\n"..str;
+	end
+	local l,r,str=quote(str);
+	w("o("..l..str..r..");\n"); 
+end
 local len=#contex;
 local i=1;
 while i<=len do
